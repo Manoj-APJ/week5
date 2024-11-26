@@ -14,26 +14,35 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                script {
+                    // Install dependencies using npm
+                    sh 'npm install'
+                }
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'npm test'
+                script {
+                    // Run the tests using npm
+                    sh 'npm test'
+                }
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                script {
+                    // Run the build process using npm
+                    sh 'npm run build'
+                }
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                // Add deployment steps here, e.g., copy files to a server or run a deployment script.
+                // Add deployment steps here, such as copying files to a server or running a deployment script.
             }
         }
     }
@@ -47,4 +56,3 @@ pipeline {
         }
     }
 }
-
